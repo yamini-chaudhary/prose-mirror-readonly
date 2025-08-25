@@ -1,0 +1,90 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: white;
+  color: #333;
+}
+
+#root {
+  width: 100%;
+}
+
+.ProseMirror {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 1rem;
+  min-height: 400px;
+  background: white;
+  font-size: 16px;
+  line-height: 1.6;
+  outline: none;
+}
+
+.ProseMirror:focus {
+  border-color: #4CAF50;
+}
+
+/* Readonly text styling */
+.readonly-text {
+  background-color: #ffebee;
+  border: 1px solid #e57373;
+  border-radius: 3px;
+  padding: 1px 3px;
+  color: #c62828;
+  font-weight: 500;
+  user-select: none;
+}
+
+/* Prevent cursor changes on readonly text */
+.readonly-text:hover {
+  cursor: not-allowed;
+}
+
+/* Basic ProseMirror styling */
+.ProseMirror h1 {
+  font-size: 2rem;
+  margin: 1rem 0 0.5rem 0;
+  color: #333;
+}
+
+.ProseMirror h2 {
+  font-size: 1.5rem;
+  margin: 1.5rem 0 0.5rem 0;
+  color: #444;
+}
+
+.ProseMirror p {
+  margin: 0.5rem 0;
+}
+
+.ProseMirror ul, .ProseMirror ol {
+  margin: 0.5rem 0;
+  padding-left: 2rem;
+}
+
+.ProseMirror li {
+  margin: 0.25rem 0;
+}
+
+.ProseMirror strong {
+  font-weight: 600;
+}
