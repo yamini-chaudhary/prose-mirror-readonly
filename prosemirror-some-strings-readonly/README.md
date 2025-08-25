@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
+# ProseMirror Readonly Strings Test Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A complete demonstration of implementing readonly text segments in ProseMirror using React, Vite, and TypeScript.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Custom readonly mark implementation
+- ✅ Transaction filtering to prevent editing readonly text
+- ✅ Visual styling for readonly segments
+- ✅ Markdown parsing with automatic readonly detection
+- ✅ Built-in ProseMirror features utilized
+- ✅ TypeScript support
 
-## Expanding the ESLint configuration
+## Setup
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Extract the zip file
+2. Navigate to the project directory
+3. Install dependencies: `npm install`
+4. Start development server: `npm run dev`
+5. Open your browser to the displayed URL
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## How it Works
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+1. **Schema Extension**: Adds a custom `readonly` mark to the ProseMirror schema
+2. **Markdown Parsing**: Parses markdown content and automatically applies readonly marks to specified strings
+3. **Transaction Filtering**: Prevents any edits to text marked as readonly
+4. **Visual Feedback**: Styled readonly text with distinctive appearance
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Usage
+
+The editor will load with sample content containing readonly strings. Try editing:
+- Normal text (works fine)
+- Readonly highlighted text (prevented)
+
+## Readonly Strings
+
+The current readonly strings are configured in `App.tsx`:
+- "readonly"
+- "sample document" 
+- "protected content"
+- "ProseMirror"
+
+## Customization
+
+To modify readonly strings, update the `readonlyStrings` array in `src/App.tsx`.
+
+## Architecture
+
+- `src/prosemirror/schema.ts` - Extended ProseMirror schema
+- `src/prosemirror/plugins.ts` - Transaction filtering plugin
+- `src/prosemirror/markdown.ts` - Markdown parsing with readonly detection
+- `src/components/ProseMirrorEditor.tsx` - React wrapper component
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instructions
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Create a new folder called `prosemirror-readonly-test`
+2. Copy each file above into the appropriate location in the folder structure
+3. Open terminal in the project folder
+4. Run `npm install` to install dependencies
+5. Run `npm run dev` to start the development server
+6. Open your browser to test the readonly functionality
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+The project demonstrates exactly what we discussed - using ProseMirror's built-in features with minimal manual work to create readonly text segments that cannot be edited while keeping the rest of the document editable.
